@@ -94,7 +94,7 @@ header, main, section, footer, aside, p, div {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	line-height: 1;
+	line-height: 1.2;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -131,11 +131,13 @@ h6 {
 	text-decoration: underline;
 }
 
-* + p, * + ol, * + ul, * + article, * + section, * + footer {
+* + p, * + ol, * + ul, * + article, * + section, * + aside, * + footer {
 	margin-top: 1.5rem;
 }
 
-:is(h1, h2, h3, h4, h5, h6) + p {
+:is(h1, h2, h3, h4, h5, h6) + p,
+:is(h1, h2, h3, h4, h5, h6) + ul,
+:is(h1, h2, h3, h4, h5, h6) + ol {
 	margin-top: 0.3rem;
 }
 
@@ -267,6 +269,7 @@ details {
 summary {
 	display: block;
 	width: 100%;
+	margin: 0;
 	padding: 0.2rem 0.5rem;
 }
 
