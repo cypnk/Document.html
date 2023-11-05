@@ -1,0 +1,440 @@
+/**
+ *  Document.html | Default color scheme
+ */
+
+:root {
+	--bodybg: #d3d3d3;
+	--bodycolor:  #333;
+	
+	--linkcolor: #0066cc;
+	--linkhcolor: #0078d7;
+	--linkvcolor: #551a8b;
+	--linkacolor: #ee0000;
+	
+	--linkfbg: #eee;
+	--linkfbrcolor: #333;
+	--linkfbrhcolor: #555;
+	
+	--mainbg: #f3f3f3;
+	
+	--footerhcolor: #777;
+	--footerhbrcolor:#aaa;
+	
+	--codebg: #f6f6f6;
+	--codebrcolor:  #ccc;
+	
+	--detailsbg: #fff;
+	--detailsbr: #ccc;
+	
+	--placecolor: #777;
+	--inputbg: #fff;
+	--inputcolor: #444;
+	--inputbrcolor: #999;
+	--inputfbrcolor: #2b569a;
+	
+	--btnbg: #ddd;
+	--btnbrcolor: #ddd;
+	
+	--btnhcolor: #222;
+	--btnhbrcolor: #90caf9;
+	--btnhbgcolor: #90caf9;
+	
+	--btnabg: #2b569a;
+	--btnacolor: #fff;
+	
+	--dialogbg: #f3f3f3;
+	--dialogbrcolor: #396fc4;
+	--dialogcbg: #e00;
+	--dialogccolor: #fff;
+}
+
+
+
+/**
+ *  Content styling
+ */
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	font-family: sans-serif;
+	color: var(--bodycolor);
+	line-height: 1.8;
+	background: var(--bodybg);
+}
+
+a {
+	color: var(--linkcolor);
+	text-decoration: underline;
+}
+
+a:hover {
+	color: var(--linkhcolor);
+	text-decoration: none;
+}
+
+a:visited {
+	color: var(--linkvcolor);
+}
+
+a:active {
+	color: var(--linkacolor);
+}
+
+header, main, section, footer, aside, p, div {
+	display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3 {
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 200%;
+}
+
+h2 {
+	font-size: 180%;
+}
+
+h3 {
+	font-size: 150%;
+}
+
+h4 {
+	font-size: 120%;
+}
+
+h5 {
+	font-size: 110%;
+}
+
+h6 {
+	font-size: 100%;
+	text-decoration: underline;
+}
+
+* + p, * + ol, * + ul, * + article, * + section, * + footer {
+	margin-top: 1.5rem;
+}
+
+:is(h1, h2, h3, h4, h5, h6) + p {
+	margin-top: 0.3rem;
+}
+
+details p {
+	padding: 0 1rem;
+}
+
+main {
+	display: block;
+	clear: both;
+	max-width: 50rem;
+	margin: 2rem auto;
+	padding: 3rem 0;
+	height: auto;
+	min-height: calc(100vh - 4rem);
+	background: var(--mainbg);
+	counter-reset: article section footer;
+}
+
+article {
+	counter-increment: article;
+	counter-reset: footer section;
+	padding: 0 4rem;
+}
+
+article section {
+	counter-increment: section;
+}
+
+article a[href^="#note"] {
+	counter-increment: footer;
+	text-decoration: none;
+	background: var(--linkfbg);
+	border-bottom: 1px dashed var(--linkfbrcolor);
+}
+
+article a[href^="#note"]::after {
+	font-size: 80%;
+	content: ' ' counter(footer);
+	vertical-align: top;
+}
+
+article a[href^="#note"]:hover {
+	border-bottom: 1px solid var(--linkfbrhcolor);
+}
+
+footer {
+	font-size: 90%;
+	margin-top: 1rem;
+	padding: 0.4rem 0;
+	border-top: 1px solid var(--footerhbrcolor);
+}
+
+article footer ol {
+	margin: 1rem 2rem;
+	padding: 0;
+	line-height: 1;
+}
+
+article footer ol li {
+	margin: 0;
+	padding: 0.2rem;
+}
+
+article footer ol li + li {
+	margin-top: 0.3rem;
+}
+
+article::before, section::before {
+	display: block;
+	color: var(--footerhcolor);
+	font-size: 80%;
+	pointer-events:none;
+	text-align: right;
+}
+
+article::before {
+	content: 'Article ' counter(article);
+}
+
+article[data-label]::before {
+	content: attr(data-label);
+}
+
+section::before {
+	content: 'Section ' counter(section);
+}
+
+section[data-label]::before {
+	content: attr(data-label);
+}
+
+pre, code {
+	font: inherit;
+	font-family: "Menlo", "Consolas", monospace;
+	border: 1px solid var(--codebrcolor);
+	border-radius:0.3rem;
+	background: var(--codebg);
+}
+
+pre {
+	padding:0.7rem 1rem;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+code {
+	padding:0.1rem 0.3rem;
+}
+
+::placeholder, :empty:before {
+	color: var(--placecolor);
+}
+
+:focus-within {
+	outline: none;
+}
+
+[rel="toggle"] {
+	display: none;
+}
+
+details {
+	background: var(--detailsbg);
+	border: 1px solid var(--detailsbr);
+}
+
+summary {
+	display: block;
+	width: 100%;
+	padding: 0.2rem 0.5rem;
+}
+
+summary::before {
+	content: '\25BE';
+	padding-right: 0.5rem;
+	line-height: 1;
+}
+
+details[open] summary::before {
+	content: '\25B4';
+}
+
+
+
+/**
+ * Input reset
+ */
+input:not([type="checkbox"],[type="radio"]), textarea, select, span[rel="bound"] {
+	font: inherit;
+	color: var(--inputcolor);
+	border: 1px solid var(--inputbrcolor);
+	background: var(--inputbg);
+	padding: 0.1rem 0.5rem;
+}
+
+input:not([type="checkbox"],[type="radio"]), select {
+	height: 1.8rem;
+}
+
+
+a, label[for], summary, select, 
+input:is([type="submit"],[type="button"],[type="reset"]) {
+	cursor: pointer;
+}
+
+main form {
+	padding: 0 1rem;
+	margin: 2rem;
+}
+
+* + form {
+	margin-top: 2rem;
+}
+
+input:is([type="submit"],[type="button"],[type="reset"]) {
+	background: var(--btnbg);
+	border-color: var(--btnbrcolor);
+	padding: 0.1rem 1rem;
+	line-height: 1;
+}
+
+input:focus, textarea:focus, select:focus {
+	outline: none;
+	border-color: var(--inputfbrcolor);
+}
+
+input:is([type="submit"],[type="button"],[type="reset"]):hover {
+	border-color: var(--btnhbrcolor);
+	background: var(--btnhbgcolor);
+	color: var(--btnhcolor);
+}
+
+input:is([type="submit"],[type="button"],[type="reset"]):active {
+	background: var(--btnabg);
+	border-color: var(--btnabrcolor);
+	color: var(--btnacolor);
+}
+
+main form label[for] {
+	display: block;
+}
+
+/**
+ *  Editable (bounded) select 
+ */
+span[rel="bound"] {
+	display: inline-grid;
+	gap: 0;
+	padding: 0;
+	grid-template-columns: auto 1rem;
+}
+
+span[rel="bound"]:focus-within {
+	border-color: var(--inputfbrcolor);
+}
+
+span[rel="bound"] :is(input,select)  {
+	border: 0;
+	height: 1.7rem;
+}
+
+
+/**
+ *  Dialog boxes
+ */
+dialog {
+	border: 1px solid var(--dialogbrcolor);
+	background: var(--dialogbg);
+	padding: 0;
+	margin: 0;
+	width: calc(50vw);
+}
+
+dialog[open], [rel="toggle"]:checked ~ dialog {
+	display: block;
+	height: auto;
+	position:fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+dialog label[rel="close"] {
+	width: 1.9rem;
+	height: 1.95rem;
+	line-height: 1.9;
+	text-align: center;
+	vertical-align: center;
+	background: var(--dialogcbg);
+	color: var(--dialogccolor);
+	position: absolute;
+	font-size: 120%;
+	top: 0;
+	right: 0;
+}
+
+
+
+@media (max-width: 52rem) {
+
+main {
+	padding: 2rem 0;
+	margin: 1rem 0;
+	min-height: calc(100vh - 2rem);
+}
+
+article {
+	padding: 0 2rem;
+}
+
+main form {
+	padding: 0 1rem;
+	margin: 1rem;
+}
+
+dialog {
+	width: calc(90vw);
+}
+
+}
+
+@media (max-width: 40rem) {
+
+article {
+	padding: 0 1rem;
+}
+
+main form {
+	padding: 0 1rem;
+	margin: 1rem 0;
+}
+
+dialog {
+	width: calc(95vw);
+}
+
+}
+
+
+
