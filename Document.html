@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Document.html</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+This is an optional, out of &lt;main&gt; element, header which has no special styling
+</header>
+
+<main>
+<article>
+	<section>
+		<header>
+			<h1>This is a heading</h1>
+			<p>A subheading. The &lt;main&gt; block of the page contains most of the content.</p>
+		</header>
+		<p>This is a common section in an article. It has a &lt;footer&gt; element, which can be used to display optional information within this section</p>
+		<footer><p>This is the first section footer</p></footer>
+	</section>
+	<section>
+		<p>This is the second section which has a <a href="#note1article1">Footnote</a> which can be referenced at the end of the article. This is a normal <a href="test">link</a> which will be displayed differently than a footnote link.</p>
+	</section>
+	<footer>
+		<p>This is the article footer section outside the section elements</p>
+		<ol>
+			<li id="note1article1">Note referred to in the above text</li>
+		</ol>
+	</footer>
+</article>
+
+<article data-label="A custom article label">
+	<section>
+		<header><h3>This is section 1 of a new article</h3></header>
+		<p>The content within this section follows the same convention as above and it has its own footer</p>
+		<p>This article has had its label overriden with the 'data-label' attribute.</p>
+		<footer><p>Optional footer at the end of section 1 of the second article</p></footer>
+	</section>
+	<section data-label="A custom section label">
+		<p>This section has also had its label overridden with the 'data-label' element attribute. It will show this value instead of the section number.</p>
+		<details>
+			<summary>A test summary</summary>
+			<p>Content outside the summary</p>
+		</details>
+	</section>
+</article>
+
+<form>
+	<p><label for="title">A title input</label>
+		<input type="text" id="title" name="title"></p>
+	<p><label for="select">An ordinary select</label> 
+		<select id="select">
+			<option>Option 1</option>
+			<option>Option 2</option>
+		</select></p>
+	<p><label for="bselect">An editable select (impement updating functionality in JavaScript)</label>
+		<span rel="bound">
+			<input>
+			<select id="bselect" rel="bound">
+				<option>Option 1</option>
+				<option>Option 2</option>
+			</select>
+		</span>
+	</p>
+	<p><label for="body">Multiline input</label>
+		<textarea rows="3" cols="40" id="body" name="body"></textarea></p>
+	<p><label><input type="checkbox"> An inline checkbox</label></p>
+	<p><input type="submit" value="Submit"></p>
+</form>
+</main>
+
+<footer>
+This is an optional, out of &lt;main&gt; element, footer which only has a basic line above it
+</footer>
+
+</body>
+</html>
+
